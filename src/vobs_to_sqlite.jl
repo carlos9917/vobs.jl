@@ -173,8 +173,8 @@ import Dates
         println("Current time $current_time")
         println(first(df))
         println(names(df))
-        #df["TIME"] = current_time #This not working!!!
-        df[!,:TIME] = [current_time]
+        df["TIME"] = current_time #This not working!!!
+        #df[!,:TIME] = [current_time]
         return df
     end
 
