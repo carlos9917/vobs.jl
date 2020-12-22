@@ -3,6 +3,11 @@ uuid = "7a4d1754-2e1a-400f-8299-8c4c412195f5"
 authors = ["Carlos"]
 version = "0.1.0"
 
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+
 [compat]
 julia = "1.5.2"
 
