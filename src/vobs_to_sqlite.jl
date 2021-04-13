@@ -173,8 +173,18 @@ import Dates
         println("Current time $current_time")
         println(first(df))
         println(names(df))
-        df["TIME"] = current_time #This not working!!!
-        #df[!,:TIME] = [current_time]
+        #colname = "TIME"
+        nrows = DataFrames.nrow(df)
+        this_time = repeat([current_time],nrows)
+        #DataFrames.insertcols!(df,1,:TIME => this_time)
+        #df.TIME = this_time #current_time
+        #df["TIME"] = current_time #This not working!!!
+        println("here")
+        #println(names(df))
+        df[!, "TIME"] = this_time
+        #df[!,:TIME] = current_time #[current_time]
+        #df[!,colname] = current_time #[current_time]
+        #df[:"TIME"] = current_time #[current_time]
         return df
     end
 
@@ -182,8 +192,11 @@ import Dates
     function set_and_reorder_columns(df, column_names)
         """Sets data is present columns and reorder to match SQL table"""
         k_itr = 1
+        println("Trouble here??")
         for k in column_names
-            df[k] = data[:,k_itr]
+            println("column ",k)
+            #df[k] = data[:,k_itr]
+            df[!,k] = data[:,k_itr]
             k_itr+=1
         end
 
